@@ -40,8 +40,9 @@ def save_user_answer_db(uid, qid, user_answer):
             if user_result:
                 user_result.correct_answers += 1
             else:
-                new_result = Results(uid=uid, correct_answer=1)
+                new_result = Results(uid=uid, correct_answers=1)
                 db.add(new_result)
+                db.commit()
             return True
         db.commit()
     return False

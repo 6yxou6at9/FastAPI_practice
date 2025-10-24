@@ -12,7 +12,7 @@ class User(Base):
     id = Column(Integer, autoincrement=True, primary_key=True)
     name = Column(String(64), nullable=False)
     phone_number = Column(String, nullable=False)
-    reg_date = Column(DateTime, default=datetime.now())
+    reg_date = Column(DateTime, default=datetime.now)
 
 class Question(Base):
     __tablename__ = 'questions'
@@ -24,7 +24,7 @@ class Question(Base):
     v3 = Column(String)
     v4 = Column(String)
     correct_answer = Column(String, nullable=False)
-    reg_date = Column(DateTime, default=datetime.now())
+    reg_date = Column(DateTime, default=datetime.now)
 
 class UserAnswer(Base):
     __tablename__ = 'user_answers'
@@ -33,8 +33,8 @@ class UserAnswer(Base):
     uid = Column(Integer, ForeignKey('users.id'))
     qid = Column(Integer, ForeignKey('questions.id'))
     answer = Column(String, nullable=False)
-    correctness = Column(Boolean, default=True)
-    reg_date = Column(DateTime, default=datetime.now())
+    correctness = Column(Boolean, default=False)
+    reg_date = Column(DateTime, default=datetime.now)
     user_fk = relationship("User", lazy='subquery')
     question_fk = relationship('Question', lazy='subquery')
 
