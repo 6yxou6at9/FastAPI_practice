@@ -20,11 +20,11 @@ async def get_exact_user_id(id):
     return {"status":1, "message": result}
 
 @user_router.post('/save_user_answer_db')
-async def save_user_answer_db (uid, qid, user_answer):
+async def save_user_answer(uid, qid, user_answer):
     result = save_user_answer_db (uid=uid, qid=qid, user_answer=user_answer)
     return {"status":1, 'message': f'Ответ пользователя {result} сохранен'}
 
 @user_router.get('/get_exact_user_result_db')
-async def get_exact_user_result_db(uid):
+async def get_exact_user_result(uid):
     result = get_exact_user_result_db(uid=uid)
     return {"status":1, 'message': result}
