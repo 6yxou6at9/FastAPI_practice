@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 
 # Указываем типа базы данных (sqlite3, postgresql)
-SQL_DATABASE = 'sqlite3:///quiz.db'
+SQL_DATABASE = 'sqlite:///quiz.db'
 
 # Создание бд
 engine = create_engine(SQL_DATABASE)
